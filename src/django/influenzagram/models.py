@@ -3,6 +3,12 @@ from django.contrib.auth.models import User
 
 URL_MAX_LENGTH = 2048
 
+class Target(models.Model):
+	first_name = models.CharField(max_length=32)
+	last_name = models.CharField(max_length=32)
+	country = models.CharField(max_length=32)
+	birth_date = models.DateTimeField()
+
 class DataProvider(models.Model):
 	TYPE_BIOGRAPHY       = 'biography'
 	TYPE_FAKE_NEWS       = 'fakenews'
@@ -71,12 +77,6 @@ class Tag(models.Model):
 class TagAssoc(models.Model):
 	tag = models.ForeignKey(Tag, on_delete=models.CASCADE)
 	source = models.ForeignKey(DataSource, on_delete=models.CASCADE)
-	
-class Target(models.Model):
-	first_name = models.CharField(max_length=32)
-	last_name = models.CharField(max_length=32)
-	country = models.CharField(max_length=32)
-	birth_date = models.DateTimeField()
 
 class Verification(models.Model):
 	source = models.ForeignKey(DataSource, on_delete=models.CASCADE)
