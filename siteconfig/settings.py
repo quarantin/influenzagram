@@ -49,7 +49,7 @@ MIDDLEWARE = [
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
 ]
 
-ROOT_URLCONF = 'influenzagram.urls'
+ROOT_URLCONF = 'siteconfig.urls'
 
 TEMPLATES = [
     {
@@ -67,7 +67,7 @@ TEMPLATES = [
     },
 ]
 
-WSGI_APPLICATION = 'influenzagram.wsgi.application'
+WSGI_APPLICATION = 'siteconfig.wsgi.application'
 
 
 # Database
