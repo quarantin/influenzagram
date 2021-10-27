@@ -9,6 +9,9 @@ class Target(models.Model):
 	country = models.CharField(max_length=32)
 	birth_date = models.DateTimeField()
 
+	def __str__(self):
+		return self.first_name + ' ' + self.last_name + ' (' + self.country + ')'
+
 class DataProvider(models.Model):
 	TYPE_BIOGRAPHY       = 'biography'
 	TYPE_FAKE_NEWS       = 'fakenews'
@@ -29,6 +32,9 @@ class DataProvider(models.Model):
 	name = models.CharField(max_length=32)
 	url = models.URLField(max_length=URL_MAX_LENGTH)
 	source_type = models.CharField(max_length=32, choices=TYPE_CHOICES)
+
+	def __str__(self):
+		return self.name
 
 class DataProviderSecret(models.Model):
 	provider = models.ForeignKey(DataProvider, on_delete=models.CASCADE)
@@ -71,8 +77,14 @@ class ProfilePicture(models.Model):
 	picture = models.ImageField()
 	target = models.ForeignKey(Target, on_delete=models.CASCADE)
 
+	def __str__(self):
+		return self.target.__str__()
+
 class Tag(models.Model):
 	tag = models.CharField(max_length=32)
+
+	def __str__(self):
+		return self.tag
 
 class TagAssoc(models.Model):
 	tag = models.ForeignKey(Tag, on_delete=models.CASCADE)
