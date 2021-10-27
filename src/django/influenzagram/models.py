@@ -19,6 +19,7 @@ class DataProvider(models.Model):
 	TYPE_NEWS            = 'news'
 	TYPE_PERSONAL        = 'personal'
 	TYPE_SOCIAL_NETWORK  = 'socialnetwork'
+	TYPE_VIDEOS          = 'videos'
 
 	TYPE_CHOICES = (
 		(TYPE_BIOGRAPHY,      'Biography'),
@@ -27,6 +28,7 @@ class DataProvider(models.Model):
 		(TYPE_NEWS,           'News'),
 		(TYPE_PERSONAL,       'Personal Website'),
 		(TYPE_SOCIAL_NETWORK, 'Social Network'),
+		(TYPE_VIDEOS,         'Videos'),
 	)
 
 	name = models.CharField(max_length=32)
