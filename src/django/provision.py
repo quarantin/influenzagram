@@ -10,7 +10,8 @@ for group in jsondata['Groups']:
 	Group.objects.get_or_create(**group)
 
 for target in jsondata['Targets']:
-	Tag.objects.get_or_create(target['first_name'] + ' ' + target['last_name'])
+	tag = target['first_name'] + ' ' + target['last_name']
+	Tag.objects.get_or_create(tag=tag)
 	Target.objects.get_or_create(**target)
 
 for provider in jsondata['DataProviders']:
