@@ -148,6 +148,12 @@
 			"country": "France",
 			"birth_date": "1955-01-28"
 		},
+`		{
+			"first_name": "Alain",
+			"last_name": "Soral",
+			"country": "France",
+			"birth_date": "1958-10-02"
+		},
 		{
 			"first_name": "Éric",
 			"last_name": "Zemmour",
