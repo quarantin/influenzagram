@@ -1,0 +1,36 @@
+version: '3.1'
+services:
+
+  app:
+    build:
+      context: ./src/django
+      dockerfile: ./Dockerfile
+    command: ["./manage.py", "runserver", "0.0.0.0:80"]
+    image: influenzagram
+    restart: unless-stopped
+    ports:
+      - "80:80"
+    links:
+      - mysql:mysql
+      - redis:redis
+    volumes:
+      - ./src/django:/app
+
+  mysql:
+    image: mysql:8
+    restart: unless-stopped
+    volumes:
+      - ./conf/mysql:/docker-entrypoint-initdb.d
+      - ./data/mysql:/var/lib/mysql
+    environment:
+      MYSQL_ROOT_PASSWORD: root
+    expose:
+      - "3306"
+
+  redis:
+    image: redis:6
+    restart: unless-stopped
+    volumes:
+      - ./data/redis:/var/lib/redis
+    expose:
+      - "6379"
