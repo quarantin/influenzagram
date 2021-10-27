@@ -1,0 +1,164 @@
+{
+	"Groups": [
+		{
+			"name": "Contributor"
+		},
+		{
+			"name": "Viewer"
+		}
+	],
+	"DataProviders": [
+		{
+			"name": "BnF",
+			"url": "https://www.bnf.fr/en",
+			"source_type": "archives"
+		},
+		{
+			"name": "Dailymotion",
+			"url": "https://www.dailymotion.com/",
+			"source_type": "videos"
+		},
+		{
+			"name": "Facebook",
+			"url": "https://www.facebook.com/",
+			"source_type": "socialnetwork"
+		},
+		{
+			"name": "Instagram",
+			"url": "https://www.instagram.com/",
+			"source_type": "socialnetwork"
+		},
+		{
+			"name": "Linkedin",
+			"url": "https://www.linkedin.com/",
+			"source_type": "socialnetwork"
+		},
+		{
+			"name": "Pinterest",
+			"url": "https://www.pinterest.com/",
+			"source_type": "socialnetwork"
+		},
+		{
+			"name": "BFMTV",
+			"url": "https://dirigeants.bfmtv.com/",
+			"source_type": "archives"
+		},
+		{
+			"name": "Twitch",
+			"url": "https://www.twitch.tv/",
+			"source_type": "videos"
+		},
+		{
+			"name": "Twitter",
+			"url": "https://twitter.com/",
+			"source_type": "socialnetwork"
+		},
+		{
+			"name": "Vimeo",
+			"url": "https://vimeo.com/",
+			"source_type": "videos"
+		},
+		{
+			"name": "Wikipedia",
+			"url": "https://www.wikipedia.org/",
+			"source_type": "archives"
+		},
+		{
+			"name": "YouTube",
+			"url": "https://www.youtube.com/",
+			"source_type": "videos"
+		}
+	],
+	"Targets": [
+		{
+			"first_name": "Bernard",
+			"last_name": "Arnaud",
+			"country": "France",
+			"birth_date": "1949-03-05"
+		},
+		{
+			"first_name": "Alexandre",
+			"last_name": "Benalla",
+			"country": "France",
+			"birth_date": "1991-09-08"
+		},
+		{
+			"first_name": "Xavier",
+			"last_name": "Bertrand",
+			"country": "France",
+			"birth_date": "1965-03-21"
+		},
+		{
+			"first_name": "Jeff",
+			"last_name": "Bezos",
+			"country": "United States",
+			"birth_date": "1964-01-12"
+		},
+		{
+			"first_name": "Vincent",
+			"last_name": "Bolloré",
+			"country": "France",
+			"birth_date": "1952-04-01"
+		},
+		{
+			"first_name": "Rachida",
+			"last_name": "Dati",
+			"country": "France",
+			"birth_date": "1965-11-27"
+		},
+		{
+			"first_name": "Nicolas",
+			"last_name": "Dupont-Aignan",
+			"country": "France",
+			"birth_date": "1961-03-07"
+		},
+		{
+			"first_name": "Cyril",
+			"last_name": "Hanouna",
+			"country": "France",
+			"birth_date": "1974-09-23"
+		},
+		{
+			"first_name": "Marine",
+			"last_name": "Le Pen",
+			"country": "France",
+			"birth_date": "1968-08-05"
+		},
+		{
+			"first_name": "Emmanuel",
+			"last_name": "Macron",
+			"country": "France",
+			"birth_date": "1977-12-21"
+		},
+		{
+			"first_name": "Jean-Luc",
+			"last_name": "Mélenchon",
+			"country": "France",
+			"birth_date": "1951-08-19"
+		},
+		{
+			"first_name": "Valérie",
+			"last_name": "Pécresse",
+			"country": "France",
+			"birth_date": "1967-07-14"
+		},
+		{
+			"first_name": "Nicolas",
+			"last_name": "Sarkozy",
+			"country": "France",
+			"birth_date": "1955-01-28"
+		},
+		{
+			"first_name": "Éric",
+			"last_name": "Zemmour",
+			"country": "France",
+			"birth_date": "1958-08-31"
+		},
+		{
+			"first_name": "Mark",
+			"last_name": "Zuckerberg",
+			"country": "Unied States",
+			"birth_date": "1984-05-14"
+		}
+	]
+}
