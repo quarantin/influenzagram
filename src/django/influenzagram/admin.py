@@ -2,10 +2,10 @@ from django.contrib import admin
 from .models import *
 
 class TargetAdmin(admin.ModelAdmin):
-    pass
+	list_display = ('last_name', 'first_name', 'country', 'birth_date')
 
 class DataProviderAdmin(admin.ModelAdmin):
-	pass
+	list_display = ('name', 'source_type', 'url')
 
 class DataProviderSecretAdmin(admin.ModelAdmin):
 	pass
