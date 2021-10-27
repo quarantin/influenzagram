@@ -1,12 +1,17 @@
+import json
+
 from django.contrib.auth.models import Group
-for group in [ 'Contributor', 'Viewer' ]:
-	obj, created = Group.objects.get_or_create(name=group)
+from influenzagram.models import *
 
-from influenzagram.models import Target
-obj, created = Target.objects.get_or_create(first_name='Éric', last_name='Zemmour', country='France', birth_date='1958-08-31')
+with open('config.json', 'r') as fd:
+	jsondata = json.load(fd)
 
-from influenzagram.models import DataProvider
-obj, created = DataProvider.objects.get_or_create(name='YouTube', url='https://www.youtube.com/', source_type='videos')
+for group in jsondata['Groups']:
+	Group.objects.get_or_create(**group)
 
-from influenzagram.models import Tag
-obj, created = Tag.objects.get_or_create(tag='Bad Faith')
+for target in jsondata['Targets']:
+	Tag.objects.get_or_create(target['first_name'] + ' ' + target['last_name'])
+	Target.objects.get_or_create(**target)
+
+for provider in jsondata['DataProviders']:
+	DataProvider.objects.get_or_create(**provider)
