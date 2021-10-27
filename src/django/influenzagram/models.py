@@ -10,18 +10,23 @@ class Target(models.Model):
 	birth_date = models.DateField()
 
 	def __str__(self):
-		return self.first_name + ' ' + self.last_name + ' (' + self.country + ')'
+		return self.first_name + ' ' + self.last_name
+
+	class Meta:
+		ordering = ('last_name', 'first_name', 'country')
 
 class DataProvider(models.Model):
-	TYPE_BIOGRAPHY       = 'biography'
-	TYPE_FAKE_NEWS       = 'fakenews'
-	TYPE_INSTITUTIONAL   = 'institutional'
-	TYPE_NEWS            = 'news'
-	TYPE_PERSONAL        = 'personal'
-	TYPE_SOCIAL_NETWORK  = 'socialnetwork'
-	TYPE_VIDEOS          = 'videos'
+	TYPE_ARCHIVES       = 'archives'
+	TYPE_BIOGRAPHY      = 'biography'
+	TYPE_FAKE_NEWS      = 'fakenews'
+	TYPE_INSTITUTIONAL  = 'institutional'
+	TYPE_NEWS           = 'news'
+	TYPE_PERSONAL       = 'personal'
+	TYPE_SOCIAL_NETWORK = 'socialnetwork'
+	TYPE_VIDEOS         = 'videos'
 
 	TYPE_CHOICES = (
+		(TYPE_ARCHIVES,       'Archives'),
 		(TYPE_BIOGRAPHY,      'Biography'),
 		(TYPE_FAKE_NEWS,      'Fake News'),
 		(TYPE_INSTITUTIONAL,  'Institutional Website'),
@@ -87,6 +92,9 @@ class Tag(models.Model):
 
 	def __str__(self):
 		return self.tag
+
+	class Meta:
+		ordering = ('tag',)
 
 class TagAssoc(models.Model):
 	tag = models.ForeignKey(Tag, on_delete=models.CASCADE)
