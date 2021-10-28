@@ -11,3 +11,7 @@ A tool to monitor people of influence
 * Create database: `./django-manage.sh migrate`
 * Create admin user: `./django-manage.sh createsuperuser --email admin@example.com --username admin`
 * Your server is accessible at http://localhost/
+
+## Populating the data from l'Assemblée Nationale (Deputés, Sénateurs, Ministres)
+
+* Downloading and populating the database with this command: `./django-manage.sh parse_deputies`
