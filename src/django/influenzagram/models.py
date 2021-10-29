@@ -67,7 +67,7 @@ class DataSource(models.Model):
 	date = models.DateTimeField()
 	language = models.CharField(max_length=32)
 	official = models.BooleanField(default=False)
-	screenshot = models.FileField()
+	screenshot = models.FileField(upload_to='uploads/%Y/%m/%d/')
 	url = models.URLField(max_length=URL_MAX_LENGTH)
 	verified = models.BooleanField(default=False)
 
@@ -77,11 +77,11 @@ class OnlinePresence(models.Model):
 	url = models.URLField(max_length=URL_MAX_LENGTH)
 
 class Picture(models.Model):
-	picture = models.ImageField()
+	picture = models.ImageField(upload_to='uploads/%Y/%m/%d/')
 	source = models.ForeignKey(DataSource, on_delete=models.CASCADE)
 
 class ProfilePicture(models.Model):
-	picture = models.ImageField()
+	picture = models.ImageField(upload_to='uploads/%Y/%m/%d/')
 	target = models.ForeignKey(Target, on_delete=models.CASCADE)
 
 	def __str__(self):
@@ -109,5 +109,5 @@ class Verification(models.Model):
 	verified = models.BooleanField(default=False)
 
 class Video(models.Model):
-	video = models.FileField()
+	video = models.FileField(upload_to='uploads/%Y/%m/%d/')
 	source = models.ForeignKey(DataSource, on_delete=models.CASCADE)
