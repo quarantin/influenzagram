@@ -8,7 +8,7 @@ class OrganAdmin(admin.ModelAdmin):
 class DeputyAdmin(admin.ModelAdmin):
 	pass
 
-class DeputyAddress(admin.ModelAdmin):
+class DeputyAddressAdmin(admin.ModelAdmin):
 	pass
 
 class MandateAdmin(admin.ModelAdmin):
@@ -17,7 +17,7 @@ class MandateAdmin(admin.ModelAdmin):
 class MandateOrganAdmin(admin.ModelAdmin):
 	pass
 
-class MandateCollaborator(admin.ModelAdmin):
+class MandateCollaboraterAdmin(admin.ModelAdmin):
 	pass
 
 admin.site.register(Organ, OrganAdmin)
