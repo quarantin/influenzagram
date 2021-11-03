@@ -111,6 +111,9 @@ class Organ(models.Model):
 	secretary_1 = models.CharField(max_length=64, null=True)
 	secretary_2 = models.CharField(max_length=64, null=True)
 
+	def __str__(self):
+		return self.uid + ' ' + self.label
+
 class Deputy(models.Model):
 	uid = models.CharField(max_length=UID_MAX_LENGTH)
 	civility = models.CharField(max_length=8)
@@ -128,6 +131,12 @@ class Deputy(models.Model):
 	job_family = models.CharField(max_length=64)
 	hatvp_url = models.URLField(max_length=2048)
 
+	def __str__(self):
+		return '%s %s %s' % (self.civility, self.first_name, self.last_name)
+
+	class Meta:
+		verbose_name_plural = 'Deputies'
+
 class DeputyAddress(models.Model):
 	deputy = models.ForeignKey(Deputy, on_delete=models.CASCADE)
 	type = models.IntegerField()
@@ -143,6 +152,9 @@ class DeputyAddress(models.Model):
 	phone_number = models.CharField(max_length=32)
 	email_address = models.CharField(max_length=320)
 	web_site = models.CharField(max_length=2048)
+
+	class Meta:
+		verbose_name_plural = 'Deputy Addresses'
 
 class Mandate(models.Model):
 
@@ -187,6 +199,9 @@ class Mandate(models.Model):
 	mandate_first_election = models.BooleanField(null=True)
 	mandate_hemicycle_seat = models.IntegerField(null=True)
 	mandate_replace_uid = models.CharField(max_length=UID_MAX_LENGTH, null=True)
+
+	def __str__(self):
+		return self.mandate_type
 
 class MandateOrgan(models.Model):
 	mandate = models.ForeignKey(Mandate, on_delete=models.CASCADE)
