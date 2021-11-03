@@ -154,7 +154,7 @@ class DeputyAddress(models.Model):
 	web_site = models.CharField(max_length=2048)
 
 	class Meta:
-		verbose_name_plural = 'Deputy Addresses'
+		verbose_name_plural = 'Deputy addresses'
 
 class Mandate(models.Model):
 
