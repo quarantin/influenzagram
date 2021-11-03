@@ -3,16 +3,16 @@ from django.contrib import admin
 from .models import *
 
 class OrganAdmin(admin.ModelAdmin):
-	pass
+	list_display = ('uid', 'label')
 
 class DeputyAdmin(admin.ModelAdmin):
-	pass
+	list_display = ('uid', 'first_name', 'last_name')
 
 class DeputyAddressAdmin(admin.ModelAdmin):
-	pass
+	list_display = ('pk', 'deputy', 'type_label')
 
 class MandateAdmin(admin.ModelAdmin):
-	pass
+	list_display = ('pk', 'deputy', 'mandate_type', 'date_start', 'date_end')
 
 class MandateOrganAdmin(admin.ModelAdmin):
 	pass
