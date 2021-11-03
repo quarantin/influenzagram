@@ -132,4 +132,4 @@ dmypy.json
 /data
 
 # Ignore Django migration files
-migrations
+**/migrations/0*.py
