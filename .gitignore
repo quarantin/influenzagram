@@ -131,5 +131,6 @@ dmypy.json
 # Ignore data folder from docker
 /data
 
-# Ignore Django migration files
-**/migrations/0*.py
+# Ignore Django migrations files
+src/django/**/migrations/*
+!src/django/**/migrations/__init__.py
