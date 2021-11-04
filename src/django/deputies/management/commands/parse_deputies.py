@@ -207,6 +207,7 @@ class Command(BaseCommand):
 			'birth_department',
 			'birth_country',
 			'death_date',
+			'hatvp_url',
 			'job',
 			'job_family',
 		]
