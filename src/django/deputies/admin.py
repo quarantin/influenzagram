@@ -6,19 +6,21 @@ class OrganAdmin(admin.ModelAdmin):
 	list_display = ('uid', 'label')
 
 class DeputyAdmin(admin.ModelAdmin):
-	list_display = ('uid', 'first_name', 'last_name')
+	list_display = ('__str__', 'job_family', 'birth_date', 'death_date')
 
 class DeputyAddressAdmin(admin.ModelAdmin):
-	list_display = ('pk', 'deputy', 'type_label')
+	list_display = ('pk', 'deputy', 'type')
 
 class MandateAdmin(admin.ModelAdmin):
-	list_display = ('pk', 'deputy', 'mandate_type', 'date_start', 'date_end')
+	list_display = ('__str__', 'deputy', 'date_start', 'date_end')
 
 class MandateOrganAdmin(admin.ModelAdmin):
-	pass
+	list_display = ('mandate', 'organ_uid', 'organ')
+	readonly_fields = ('mandate',)
 
 class MandateCollaboraterAdmin(admin.ModelAdmin):
-	pass
+	list_display = ('__str__', 'deputy', 'mandate', 'date_start', 'date_end')
+	readonly_fields = ('mandate',)
 
 admin.site.register(Organ, OrganAdmin)
 admin.site.register(Deputy, DeputyAdmin)
