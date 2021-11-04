@@ -251,7 +251,7 @@ class Command(BaseCommand):
 
 		self.fd = open('output.log', 'w')
 		self.url = 'https://data.assemblee-nationale.fr/static/openData/repository/15/amo/deputes_senateurs_ministres_legislature/AMO20_dep_sen_min_tous_mandats_et_organes_XV.json.zip'
-		self.folder = '/tmp'
+		self.folder = 'data'
 		self.filepath = os.path.join(self.folder, os.path.basename(self.url))
 		self.jsonfolder = os.path.join(self.folder, 'json')
 
