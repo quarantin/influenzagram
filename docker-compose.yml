@@ -18,6 +18,7 @@ services:
       - redis:redis
     volumes:
       - ./src/django:/app
+      - ./data:/app/data
 
   mysql:
     image: mysql:8
