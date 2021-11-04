@@ -5,6 +5,9 @@ services:
     build:
       context: ./src/django
       dockerfile: ./Dockerfile
+    depends_on:
+      - "mysql"
+      - "redis"
     command: ["./manage.py", "runserver", "0.0.0.0:80"]
     image: influenzagram
     restart: unless-stopped
