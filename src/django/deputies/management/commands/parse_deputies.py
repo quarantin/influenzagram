@@ -63,12 +63,14 @@ class Command(BaseCommand):
 			organ.parent_organ = Organ.objects.get(uid=parent_uid)
 			organ.save()
 
+	def convert(self, data):
+		return data and data.strip(', ') or data
+
 	def parse_address(self, deputy, addr):
 
 		info = {
 			'deputy':      deputy,
 			'type':        addr['type'],
-			'type_label':  addr['typeLibelle'],
 			'weight':      addr['poids'],
 			'address_uid': addr['adresseDeRattachement'],
 		}
@@ -77,10 +79,10 @@ class Command(BaseCommand):
 			info['email_address']   = addr['valElec']
 
 		elif addr['@xsi:type'] == 'AdressePostale_Type':
-			info['entitle']         = addr['intitule']
+			info['entitle']         = self.convert(addr['intitule'])
 			info['street_number']   = addr['numeroRue']
-			info['street_name']     = addr['nomRue']
-			info['street_addition'] = addr['complementAdresse']
+			info['street_name']     = self.convert(addr['nomRue'])
+			info['street_addition'] = self.convert(addr['complementAdresse'])
 			info['postal_code']     = addr['codePostal']
 			info['city']            = addr['ville']
 
@@ -209,6 +211,7 @@ class Command(BaseCommand):
 			'death_date',
 			'hatvp_url',
 			'job',
+			'job_category',
 			'job_family',
 		]
 
