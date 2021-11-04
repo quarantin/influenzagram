@@ -16,11 +16,11 @@ class MandateAdmin(admin.ModelAdmin):
 
 class MandateOrganAdmin(admin.ModelAdmin):
 	list_display = ('mandate', 'organ_uid', 'organ')
-	readonly_fields = ('mandate',)
+	readonly_fields = ('organ_uid', 'organ', 'mandate')
 
 class MandateCollaboraterAdmin(admin.ModelAdmin):
 	list_display = ('__str__', 'deputy', 'mandate', 'date_start', 'date_end')
-	readonly_fields = ('mandate',)
+	readonly_fields = ('deputy', 'mandate')
 
 admin.site.register(Organ, OrganAdmin)
 admin.site.register(Deputy, DeputyAdmin)
