@@ -35,6 +35,7 @@ ALLOWED_HOSTS = []
 INSTALLED_APPS = [
 	'core',
 	'deputies',
+	'ministers',
 	'influenzagram',
 	'django.contrib.admin',
 	'django.contrib.auth',
