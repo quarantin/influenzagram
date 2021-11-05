@@ -16,7 +16,6 @@ class Command(BaseCommand):
 	def download_data(self):
 		if not os.path.exists(self.filepath):
 			print('Downloading ' + self.url)
-			print('Saving to ' + self.filepath)
 			response = requests.get(self.url)
 			fd = open(self.filepath, 'wb')
 			fd.write(response.content)
@@ -35,8 +34,11 @@ class Command(BaseCommand):
 		data = pyexcel_ods.get_data(self.filepath)
 		for sheet, rows in data.items():
 			for row in rows[2:]:
+
+				if not row:
+					continue
+
 				d = {}
-				print(row)
 				if len(row) == 9:
 					_, d['last_name'], d['first_name'], regime, head_of_state, head_of_government, period, d['function'], d['nomination_start'] = row
 					d['nomination_end'] = None
@@ -46,22 +48,34 @@ class Command(BaseCommand):
 				elif len(row) == 11:
 					_, d['last_name'], d['first_name'], regime, head_of_state, head_of_government, period, d['function'], d['nomination_start'], d['nomination_end'], d['comments'] = row
 				else:
-					print('WTF: %s' % row)
-					continue
+					raise Exception('ERROR: %s' % row)
 
 				d['political_regime'] = self.regimes[regime]
 
-				tokens = head_of_state.split(' ')
+				lines = head_of_state.split('\n')
+				tokens = lines[0].split(' ')
 				d['head_of_state'] = ' '.join(tokens[0:-3])
 				d['head_of_state_start'] = datetime.strptime(tokens[-3], '%d/%m/%Y')
-
 				if tokens[-1].startswith('…'):
 					d['head_of_state_end'] = None
 				else:
 					d['head_of_state_end'] = datetime.strptime(tokens[-1], '%d/%m/%Y')
 
-				#d['nomination_start'] = datetime.strptime(d['nomination_start'], '%d/%m/%Y')
-				#d['nomination_end'] = datetime.strptime(d['nomination_end'], '%d/%m/%Y')
+				if len(lines) > 1:
+					tokens = lines[1].split(' ')
+					d['temp_head_of_state'] = ' '.join(tokens[0:-3])
+					d['temp_head_of_state_start'] = datetime.strptime(tokens[-3], '%d/%m/%Y')
+					d['temp_head_of_state_end'] = datetime.strptime(tokens[-1], '%d/%m/%Y')
+
+				tokens = head_of_government.split('(')
+				d['head_of_government'] = tokens[0].strip()
+
+				if d['function'].startswith('MD'):
+					d['function'] = d['function'].replace('MD', 'Ministre délégué')
+				elif d['function'].startswith('SE'):
+					d['function'] = d['function'].replace('SE', 'Secrétaire d\'état')
+				elif d['function'].startswith('Sous-SE'):
+					d['function'] = d['function'].replace('Sous-SE', 'Sous-secrétaire d\'état')
 
 				tokens = period.strip().split(' ')
 				if len(tokens) == 2:
