@@ -7,6 +7,8 @@ Django==3.2.8
 idna==3.3
 Pillow==8.4.0
 pycparser==2.20
+pyexcel-io==0.6.5
+pyexcel-ods==0.6.0
 PyMySQL==1.0.2
 pytz==2021.3
 requests==2.26.0
